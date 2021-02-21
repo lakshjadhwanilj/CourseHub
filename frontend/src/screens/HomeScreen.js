@@ -1,0 +1,23 @@
+import React from 'react'
+// Components
+import Course from '../components/Course'
+import { Row, Col } from 'react-bootstrap'
+// Data
+import courses from '../courses'
+
+const Homescreen = () => {
+    return (
+        <>
+            <h1>Latest Courses</h1>
+            <Row>
+                { courses.map(course => (
+                    <Col sm={12} md={6} lg={4} xl={3}>
+                        <Course course={ course } />
+                    </Col>
+                )) }
+            </Row>
+        </>
+    )
+}
+
+export default Homescreen

@@ -11,7 +11,7 @@ const Homescreen = () => {
             <h1>Latest Courses</h1>
             <Row>
                 { courses.map(course => (
-                    <Col sm={12} md={6} lg={4} xl={3}>
+                    <Col key={ course._id } sm={12} md={6} lg={4} xl={3}>
                         <Course course={ course } />
                     </Col>
                 )) }

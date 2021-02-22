@@ -15,7 +15,7 @@ const CourseScreen = ({ match }) => {
             setCourse(data)
         }
         fetchCourse()
-    }, [])
+    }, [match])
 
     return (
         <>

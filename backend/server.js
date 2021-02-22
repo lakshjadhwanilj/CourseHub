@@ -1,7 +1,7 @@
 // Requiring packages
-const express = require('express')
-const dotenv = require('dotenv')
-const courses = require('./data/courses')
+import express from 'express'
+import dotenv from 'dotenv'
+import courses from './data/courses.js'
 
 // Load config
 dotenv.config()

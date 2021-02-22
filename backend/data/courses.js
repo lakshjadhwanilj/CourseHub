@@ -73,4 +73,4 @@ const courses = [
     },
   ]
   
-module.exports = courses
+export default courses

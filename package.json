@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "E-learning Platform using MERN and cloud",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",

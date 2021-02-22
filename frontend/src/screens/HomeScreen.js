@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 // Components
 import Course from '../components/Course'
 import { Row, Col } from 'react-bootstrap'
-// Data
-import courses from '../courses'
 
 const Homescreen = () => {
+
+    const [courses, setCourses] = useState([])
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            const { data } = await axios.get('/api/courses')
+            setCourses(data)
+        }
+        fetchCourses()
+    }, [])
+
     return (
         <>
             <h3 className='pb-0 my-0'>Let's Start Learning</h3>

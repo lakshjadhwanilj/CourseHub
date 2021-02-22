@@ -1,0 +1,14 @@
+{
+  "name": "coursehub",
+  "version": "1.0.0",
+  "description": "E-learning Platform using MERN and cloud",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "Laksh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

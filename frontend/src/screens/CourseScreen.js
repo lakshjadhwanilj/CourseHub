@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 // Components
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
-// Data
-import courses from '../courses'
 
 const CourseScreen = ({ match }) => {
     
-    const course = courses.find(c => c._id === match.params.id)
+    const [course, setCourse] = useState({})
+
+    useEffect(() => {
+        const fetchCourse = async () => {
+            const { data } = await axios.get(`/api/courses/${match.params.id}`)
+            setCourse(data)
+        }
+        fetchCourse()
+    }, [])
 
     return (
         <>
@@ -31,7 +38,7 @@ const CourseScreen = ({ match }) => {
                     <Card>
                         <Card.Img className='border-bottom border-warning' src={course.image} variant='top' />
                         <Card.Body>
-                            <Card.Text as='h3' className='text-center'>${course.price}</Card.Text>
+                            <Card.Text as='h3' className='text-center'>$ {course.price}</Card.Text>
                             <Button className='btn btn-warning btn-block btn-lg' type='button' disabled={course.availability !== 'available'}>
                                 ENROLL NOW
                             </Button>

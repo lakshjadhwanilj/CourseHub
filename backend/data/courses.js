@@ -6,6 +6,7 @@ const courses = [
       description:
         'The Best Resource for Building Amazing Full-Stack Apps with the Best in MongoDB, Express, React and Node.js',
       instructor: 'Reed Barger',
+      category: 'Development',
       price: 449.99,
       availability: 'not available',
       rating: 4.2,
@@ -18,6 +19,7 @@ const courses = [
       description:
         'Learn Modern React 16.8+ Including Hooks, Context API, Full Stack MERN & Redux By Building Real Life Projects',
       instructor: 'Brad Traversy',
+      category: 'Development',
       price: 89.99,
       availability: 'available',
       rating: 4.7,
@@ -30,6 +32,7 @@ const courses = [
       description:
         'The most comprehensive Angular 4 (Angular 2+) course. Build a real e-commerce app with Angular, Firebase and Bootstrap 4',
       instructor: 'Mosh Hamedani',
+      category: 'Development',
       price: 99.99,
       availability: 'available',
       rating: 3,
@@ -42,6 +45,7 @@ const courses = [
       description:
         'Improve your career options by learning Android app Development. Master Android Studio and build your first app today',
       instructor: 'Tim Buchalka',
+      category: 'Development',
       price: 129.99,
       availability: 'available',
       rating: 5,
@@ -54,6 +58,7 @@ const courses = [
       description:
         'Master Photoshop CC 2021 without any previous knowledge with this easy-to-follow course',
       instructor: 'Cristian Doru Barin',
+      category: 'Design',
       price: 399.99,
       availability: 'available',
       rating: 3.5,
@@ -66,6 +71,7 @@ const courses = [
       description:
         'A Python course for the busy ones to learn Python programming quickly and practice it by building two complete apps.',
       instructor: 'Ardit Sulce',
+      category: 'Development',
       price: 59.99,
       availability: 'available',
       rating: 4,

@@ -8,7 +8,7 @@ import courses from '../courses'
 const Homescreen = () => {
     return (
         <>
-            <h1>Latest Courses</h1>
+            <h3 className='pb-0 my-0'>Let's Start Learning</h3>
             <Row>
                 { courses.map(course => (
                     <Col key={ course._id } sm={12} md={6} lg={4} xl={3}>

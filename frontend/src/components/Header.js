@@ -7,8 +7,8 @@ import logo from '../assets/images/logo.png'
 const Header = () => {
     return (
         <header>
-            <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
-                <Container>
+            <Navbar className='py-1' bg='dark' variant='dark' expand='lg' fixed='top' collapseOnSelect>
+                <Container className='py-0'>
                     <LinkContainer to='/'>
                         <Navbar.Brand>
                             <img

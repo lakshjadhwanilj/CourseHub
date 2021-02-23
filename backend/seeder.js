@@ -1,3 +1,4 @@
+// Requiring packages
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import colors from 'colors'
@@ -11,10 +12,13 @@ import Order from './models/orderModel.js'
 
 import connectDB from './config/db.js'
 
+// Load config
 dotenv.config()
 
+// Connecting to MongoDB
 connectDB()
 
+// Import sample data
 const importData = async () => {
     try {
         await Order.deleteMany()
@@ -38,6 +42,7 @@ const importData = async () => {
     }
 }
 
+// Destroy all data
 const destroyData = async () => {
     try {
         await Order.deleteMany()

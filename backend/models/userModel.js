@@ -1,5 +1,7 @@
+// Requiring packages
 import mongoose from 'mongoose'
 
+// Creating Schema
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -23,6 +25,7 @@ const userSchema = mongoose.Schema({
     timestamps: true
 })
 
+// Creating Models
 const User = mongoose.model('User', userSchema)
 
 export default User

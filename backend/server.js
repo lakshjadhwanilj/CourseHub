@@ -3,8 +3,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-
 import courseRoutes from './routes/courseRoutes.js'
+import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 // Load config
 dotenv.config()
@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/courses', courseRoutes)
+
+// Custom Middleware
+app.use(notFound)
+app.use(errorHandler)
 
 // Listening to the port
 const PORT = process.env.PORT || 5000

@@ -1,5 +1,7 @@
+// Requiring packages
 import mongoose from 'mongoose'
 
+// Creating Schema
 const reviewSchema = mongoose.Schema({
     name: {
         type: String,
@@ -68,6 +70,7 @@ const courseSchema = mongoose.Schema({
     timestamps: true
 })
 
+// Creating Models
 const Course = mongoose.model('Course', courseSchema)
 
 export default Course

@@ -32,3 +32,7 @@ h3 {
 .rating span {
     margin: 0.1rem;
 }
+
+.card {
+    height: 22rem;
+}

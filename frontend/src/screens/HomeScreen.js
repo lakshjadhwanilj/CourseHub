@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listCourses } from '../actions/courseActions'
 // Components
-import Course from '../components/Course'
 import { Row, Col } from 'react-bootstrap'
+import Course from '../components/Course'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 
 const Homescreen = () => {
 
@@ -20,9 +22,9 @@ const Homescreen = () => {
         <>
             <h3 className='pb-0 my-0'>Let's Start Learning</h3>
             { loading ? (
-                <h3>Loading...</h3>
+                <Loader />
             ) : error ? (
-                <h3>{error}</h3>
+                <Message variant='danger'>{ error }</Message>
             ) : (
                 <Row>
                 { courses.map(course => (

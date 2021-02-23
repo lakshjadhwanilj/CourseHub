@@ -24,12 +24,12 @@ const Header = () => {
                         <Nav className='ml-auto'>
                             <LinkContainer to='/cart'>
                                 <Nav.Link>
-                                    <i className='fas fa-shopping-cart'></i> CART
+                                    <i className='fas fa-shopping-cart text-warning'></i> CART
                                 </Nav.Link>
                             </LinkContainer>
                             <LinkContainer to='/login'>
                                 <Nav.Link>
-                                    <i className='fas fa-user'></i> SIGN IN
+                                    <i className='fas fa-user text-warning'></i> SIGN IN
                                 </Nav.Link>
                             </LinkContainer>
                         </Nav>

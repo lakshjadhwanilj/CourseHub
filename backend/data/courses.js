@@ -1,6 +1,5 @@
 const courses = [
     {
-      _id: '1',
       title: 'MERN Stack - The Complete Guide',
       image: '/images/mern.jpg',
       description:
@@ -13,7 +12,6 @@ const courses = [
       numReviews: 12,
     },
     {
-      _id: '2',
       title: 'React Front To Back: Beginner to Advanced',
       image: '/images/react.png',
       description:
@@ -26,7 +24,6 @@ const courses = [
       numReviews: 8,
     },
     {
-      _id: '3',
       title: 'The Complete Angular Course',
       image: '/images/angular.jpg',
       description:
@@ -39,7 +36,6 @@ const courses = [
       numReviews: 12,
     },
     {
-      _id: '4',
       title: 'Android Java Masterclass: Beginner to Advanced',
       image: '/images/android.jpg',
       description:
@@ -52,7 +48,6 @@ const courses = [
       numReviews: 12,
     },
     {
-      _id: '5',
       title: 'Ultimate Photoshop Training',
       image: '/images/photoshop.png',
       description:
@@ -65,7 +60,6 @@ const courses = [
       numReviews: 10,
     },
     {
-      _id: '6',
       title: 'Python for Beginners with Examples',
       image: '/images/python.png',
       description:

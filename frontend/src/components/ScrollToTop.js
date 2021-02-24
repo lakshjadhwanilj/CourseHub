@@ -25,7 +25,7 @@ const ScrollToTop = () => {
     }
 
     return (
-        <Button className='scroll-to-top btn btn-warning btn-lg rounded-lg text-center text-dark border-dark' onClick={scrollToTop}>
+        <Button type='button' className='scroll-to-top btn btn-warning btn-lg rounded-lg text-center text-dark border-dark' onClick={scrollToTop}>
             <i className='fas fa-chevron-up'></i>
         </Button>
     )

@@ -36,3 +36,10 @@ h3 {
 .card {
     height: 22rem;
 }
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 12px;
+    right: 15px;
+    z-index: 1;
+}

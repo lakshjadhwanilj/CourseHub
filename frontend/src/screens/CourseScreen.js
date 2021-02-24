@@ -8,7 +8,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
-const CourseScreen = ({ match }) => {
+const CourseScreen = ({ history, match }) => {
 
     const dispatch = useDispatch()
 
@@ -18,6 +18,10 @@ const CourseScreen = ({ match }) => {
     useEffect(() => {
        dispatch(listCourseDetails(match.params.id))
     }, [dispatch, match])
+
+    const addToCartHandler = () => {
+        history.push(`/cart/${match.params.id}`)
+    }
 
     return (
         <>
@@ -45,8 +49,14 @@ const CourseScreen = ({ match }) => {
                         <Card>
                             <Card.Img className='border-bottom border-warning' src={course.image} variant='top' />
                             <Card.Body>
-                                <Card.Text as='h3' className='text-center'>$ {course.price}</Card.Text>
-                                <Button className='btn btn-warning btn-block btn-lg' type='button' disabled={course.availability !== 'available'}>
+                                <Card.Text as='h3' className='text-center'>
+                                    $ {course.price}
+                                </Card.Text>
+                                <Button
+                                    className='btn btn-warning btn-block btn-lg'
+                                    type='button'
+                                    onClick={ addToCartHandler }
+                                    disabled={course.availability !== 'available'} >
                                     ENROLL NOW
                                 </Button>
                             </Card.Body>

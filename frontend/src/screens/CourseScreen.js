@@ -25,7 +25,7 @@ const CourseScreen = ({ history, match }) => {
 
     return (
         <>
-            <Link className='btn btn-link my-3 text-warning' to='/'>Go Back</Link>
+            <Link className='btn btn-link my-3 text-warning text-decoration-none' to='/'>Go Back</Link>
             { loading ? (
                 <Loader />
             ) : error ? (
@@ -47,7 +47,11 @@ const CourseScreen = ({ history, match }) => {
                     </Col>
                     <Col md={4}>
                         <Card>
-                            <Card.Img className='border-bottom border-warning' src={course.image} variant='top' />
+                            <Card.Img
+                                className='border-bottom border-warning'
+                                src={course.image}
+                                variant='top'
+                            />
                             <Card.Body>
                                 <Card.Text as='h3' className='text-center'>
                                     $ {course.price}

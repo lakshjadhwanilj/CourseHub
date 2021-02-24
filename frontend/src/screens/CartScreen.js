@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart } from '../actions/cartActions'
+import { addToCart, removeFromCart } from '../actions/cartActions'
 // Components
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
@@ -22,7 +22,7 @@ const CartScreen = ({ match, history }) => {
     }, [dispatch, courseId])
 
     const removeFromCartHandler = (id) => {
-        console.log('remove')
+        dispatch(removeFromCart(id))
     }
 
     const checkoutHandler = () => {
@@ -36,7 +36,7 @@ const CartScreen = ({ match, history }) => {
             <Row>
                 <Col lg={9}>
                     {cartItems.length === 0 ? (
-                        <Message>Your cart is empty! <Link to='/'>Go Back</Link></Message>
+                        <Message>Your cart is empty! <Link to='/' className='font-weight-bold text-decoration-none'>Go Back</Link></Message>
                     ) : (
                         <>
                             <p className='lead text-muted p-0 m-0'>
@@ -64,7 +64,8 @@ const CartScreen = ({ match, history }) => {
                                                     variant='outline-danger'
                                                     size='lg'
                                                     className='my-2'
-                                                    onClick={removeFromCartHandler(item.course)}>
+                                                    onClick={() => removeFromCartHandler(item.course)}
+                                                >
                                                     <i className='fas fa-trash'></i>
                                                 </Button>
                                             </Col>

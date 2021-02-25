@@ -25,14 +25,14 @@ const CourseScreen = ({ history, match }) => {
 
     return (
         <>
-            <Link className='btn btn-link my-3 text-warning text-decoration-none' to='/'>Go Back</Link>
+            <Link className='btn btn-link mt-3 px-0 text-warning text-decoration-none font-weight-bold' to='/'>Go Back</Link>
             { loading ? (
                 <Loader />
             ) : error ? (
                 <Message variant='danger'>{ error }</Message>
             ) : (
                 <Row>
-                    <Col md={8}>
+                    <Col lg={8}>
                         <h2 className='py-2'>{course.title}</h2>
                         <h5 className='py-2'>{course.description}</h5>
                         <Row>
@@ -45,10 +45,10 @@ const CourseScreen = ({ history, match }) => {
                         </Row>
                         <h5 className='py-2'>Created By: {course.instructor}</h5>
                     </Col>
-                    <Col md={4}>
+                    <Col lg={4}>
                         <Card>
                             <Card.Img
-                                className='border-bottom border-warning'
+                                className='border-bottom border-warning course-card-img'
                                 src={course.image}
                                 variant='top'
                             />

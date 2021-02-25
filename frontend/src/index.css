@@ -33,8 +33,14 @@ h3 {
     margin: 0.1rem;
 }
 
-.card {
+.course-card {
     height: 22rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .course-card-img {
+        height: 12rem;
+    }
 }
 
 .scroll-to-top {

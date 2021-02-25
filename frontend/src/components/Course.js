@@ -6,9 +6,9 @@ import { Card } from 'react-bootstrap'
 
 const Course = ({ course }) => {
     return (
-        <Card bg='dark' className='my-3 p-0 rounded card'>
+        <Card bg='dark' className='my-3 p-0 rounded course-card'>
             <Link to={`/course/${course._id}`}>
-                <Card.Img className='m-0 p-0' src={course.image} variant='top' />
+                <Card.Img className='m-0 p-0 course-card-img' src={course.image} variant='top' />
             </Link>
             <Card.Body className='border-top border-warning'>
                 <Link to={`/course/${course._id}`}>

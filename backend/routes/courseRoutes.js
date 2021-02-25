@@ -1,29 +1,9 @@
 import express from 'express'
-import asyncHandler from 'express-async-handler'
-import Course from '../models/courseModel.js'
+import { getCourses, getCourseById } from '../controllers/courseController.js'
 
 const router = express.Router()
 
-// @desc    Fetch all courses
-// @route   GET /api/courses
-// @access  Pubic
-router.get('/', asyncHandler (async (req, res) => {
-    const courses = await Course.find({})
-    res.json(courses)
-}))
-
-// @desc    Fetch single course
-// @route   GET /api/courses/:id
-// @access  Pubic
-router.get('/:id', asyncHandler (async (req, res) => {
-    const course = await Course.findById(req.params.id)
-
-    if (course) {
-        res.json(course)
-    } else {
-        res.status(404)
-        throw new Error('Product not found!')
-    }
-}))
+router.route('/').get(getCourses)
+router.route('/:id').get(getCourseById)
 
 export default router

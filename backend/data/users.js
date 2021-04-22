@@ -1,19 +1,21 @@
+import bcrpyt from 'bcryptjs'
+
 const users = [
     {
         name: 'Admin User',
-        email: 'admin@example',
-        password: 'xxxx',
+        email: 'admin@example.com',
+        password: bcrpyt.hashSync('123456', 10),
         isAdmin: true
     },
     {
         name: 'John',
-        email: 'john@example',
-        password: 'xxxx'
+        email: 'john@example.com',
+        password: bcrpyt.hashSync('123456', 10)
     },
     {
         name: 'Jane',
-        email: 'jane@example',
-        password: 'xxxx'
+        email: 'jane@example.com',
+        password: bcrpyt.hashSync('123456', 10)
     },
 ]
 

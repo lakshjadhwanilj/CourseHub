@@ -23,12 +23,13 @@ main {
 
 .btn-link {
     font-weight: bold;
-    color: #00bc8c;
+    /* color: #00bc8c; */
 }
 
+a:hover,
 .btn-link:hover {
     text-decoration: none;
-    color: #20c997;
+    /* color: #20c997; */
 }
 
 h3 {

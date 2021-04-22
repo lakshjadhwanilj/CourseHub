@@ -59,14 +59,14 @@ const LoginScreen = ({ location, history }) => {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='warning'>Sign In</Button>
+                <Button type='submit' variant='warning'>SIGN IN</Button>
             </Form>
 
             <Row className='py-3'>
                 <Col>
                     <p className='text-muted font-weight-bold'>
                         Dont't have an account? <Link
-                            className='btn btn-link px-0'
+                            className='btn btn-link px-0 text-success'
                             to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                             Register
                             </Link>

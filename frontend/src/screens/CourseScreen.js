@@ -25,7 +25,7 @@ const CourseScreen = ({ history, match }) => {
 
     return (
         <>
-            <Link className='btn btn-link mt-3 px-0 text-warning text-decoration-none font-weight-bold' to='/'>Go Back</Link>
+            <Link className='btn btn-link mt-3 px-0' to='/'>Go Back</Link>
             { loading ? (
                 <Loader />
             ) : error ? (

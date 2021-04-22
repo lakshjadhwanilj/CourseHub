@@ -21,8 +21,14 @@ main {
     min-height: 80vh;
 }
 
-a:hover {
+.btn-link {
+    font-weight: bold;
+    color: #00bc8c;
+}
+
+.btn-link:hover {
     text-decoration: none;
+    color: #20c997;
 }
 
 h3 {

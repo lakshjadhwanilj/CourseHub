@@ -20,7 +20,7 @@ export const listCourses = () => async (dispatch) => {
         dispatch({
             type: COURSE_LIST_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
-        })        
+        })
     }
 }
 

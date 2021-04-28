@@ -79,7 +79,7 @@ const CartScreen = ({ match, history }) => {
                 <Col lg={3}>
                     <div>
                         <ListGroup variant='flush'>
-                            <ListGroup.Item className='bg-transparent px-0'>
+                            <ListGroup.Item className='bg-transparent px-0 border-0'>
                                 <p className='lead text-muted'>Total:</p>
                                 <h3 className='py-0 my-0 font-weight-bold'>
                                     $ {cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}

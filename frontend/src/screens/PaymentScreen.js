@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { savePaymentMethod } from '../actions/cartActions'
 // Components
 import { Form, Button, Row, Col } from 'react-bootstrap'
@@ -19,7 +19,7 @@ const PaymentScreen = ({ history }) => {
     }
 
     return (
-        <FormContainer>
+        <>
             <CheckoutSteps step1 step2 />
             <h3 className='pb-1'>Payment</h3>
             <Form onSubmit={submitHandler}>
@@ -49,7 +49,7 @@ const PaymentScreen = ({ history }) => {
                 </Form.Group>
                 <Button type='submit' variant='success'>Continue</Button>
             </Form>
-        </FormContainer>
+        </>
     )
 }
 

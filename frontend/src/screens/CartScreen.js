@@ -26,7 +26,7 @@ const CartScreen = ({ match, history }) => {
     }
 
     const checkoutHandler = () => {
-        history.push('/login?redirect=shipping')
+        history.push('/login?redirect=payment')
     }
 
     return (

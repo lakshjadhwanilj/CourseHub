@@ -1,20 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { savePaymentMethod } from '../actions/cartActions'
+import { createOrder } from '../actions/orderActions'
 // Components
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 
-const PlaceOrderScreen = () => {
+const PlaceOrderScreen = ({ history}) => {
+
+    const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
     
     cart.totalPrice = cart.cartItems.reduce((acc, item) => acc + item.price, 0)
 
+    const orderCreate = useSelector(state => state.orderCreate)
+    const { order, success, error } = orderCreate
+
+    useEffect(() => {
+        if (success) {
+            history.push(`/order/${order._id}`)
+        }
+        // eslint-disable-next-line
+    }, [history, success])
+
     const placeOrderHandler = () => {
-        console.log('order')
+        dispatch(createOrder({
+            orderItems: cart.cartItems,
+            paymentMethod: cart.paymentMethod,
+            totalPrice: cart.totalPrice
+        }))
     }
 
     return (
@@ -78,6 +94,14 @@ const PlaceOrderScreen = () => {
                                     <Col>$ { cart.totalPrice }</Col>
                                 </Row>
                             </ListGroup.Item>
+
+                            {
+                                error &&
+                                <ListGroup.Item className='bg-transparent px-0 border-0'>
+                                    <Message variant='danger'>{ error }</Message>
+                                </ListGroup.Item>
+                            }
+
                             <ListGroup.Item className='bg-transparent p-0'>
                                 <Button
                                     type='button'

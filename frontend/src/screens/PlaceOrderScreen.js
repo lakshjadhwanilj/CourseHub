@@ -7,7 +7,7 @@ import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 
-const PlaceOrderScreen = ({ history}) => {
+const PlaceOrderScreen = ({ history }) => {
 
     const dispatch = useDispatch()
 

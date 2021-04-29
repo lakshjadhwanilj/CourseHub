@@ -5,7 +5,7 @@ import { Alert } from 'react-bootstrap'
 const Message = ({ variant, children }) => {
     return (
         <Alert className='my-2' variant={ variant }>
-            { variant === 'danger' && <strong>Oh snap!</strong> } { children }
+            { children }
         </Alert>
     )
 }

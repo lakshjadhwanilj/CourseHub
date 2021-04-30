@@ -10,6 +10,7 @@ import ProfileScreen from './screens/ProfileScreen'
 import PaymentScreen from './screens/PaymentScreen'
 import PlaceOrderScreen from './screens/PlaceOrderScreen'
 import OrderScreen from './screens/OrderScreen'
+import UsersListScreen from './screens/UsersListScreen'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/course/:id' component={CourseScreen} />
           <Route path='/cart/:id?' component={CartScreen} />
+          <Route path='/admin/userlist' component={UsersListScreen} />
           <Route path='/' exact component={HomeScreen} />
         </Container>
         <ScrollToTop />

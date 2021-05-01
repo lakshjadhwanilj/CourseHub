@@ -52,7 +52,7 @@ const CourseListScreen = ({ history, match }) => {
         <>
             <Row className='align-items-center'>
                 <Col>
-                    <h3>Courses</h3>
+                    <h3 className='text-muted font-weight-bold'>List of Courses</h3>
                 </Col>
                 <Col className='text-right'>
                     <Button variant='warning' className='my-3' onClick={createCourseHandler}>

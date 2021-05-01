@@ -33,7 +33,7 @@ const LoginScreen = ({ location, history }) => {
 
     return (
         <FormContainer>
-            <h3>Sign In</h3>
+            <h3 className='text-muted font-weight-bold'>Sign In</h3>
             { error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
@@ -59,7 +59,14 @@ const LoginScreen = ({ location, history }) => {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='warning'>SIGN IN</Button>
+                <Button
+                    type='submit'
+                    variant='warning'
+                    size='lg'
+                    className='btn-block'
+                >
+                    SIGN IN
+                </Button>
             </Form>
 
             <Row className='py-3'>

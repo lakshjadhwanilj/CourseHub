@@ -40,7 +40,7 @@ const RegisterScreen = ({ location, history }) => {
 
     return (
         <FormContainer>
-            <h3>Sign Up</h3>
+            <h3 className='text-muted font-weight-bold'>Sign Up</h3>
             { message && <Message variant='danger'>{message}</Message>}
             { error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
@@ -89,7 +89,14 @@ const RegisterScreen = ({ location, history }) => {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='warning'>Register</Button>
+                <Button
+                    type='submit'
+                    variant='warning'
+                    size='lg'
+                    className='btn-block'
+                >
+                    Register
+                </Button>
             </Form>
 
             <Row className='py-3'>

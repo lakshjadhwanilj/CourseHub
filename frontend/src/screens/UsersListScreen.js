@@ -35,7 +35,7 @@ const UsersListScreen = ({ history }) => {
     }
     return (
         <>
-            <h3>Users</h3>
+            <h3 className='text-muted font-weight-bold'>List of Users</h3>
             {
                 loading ? <Loader /> :
                     error ? <Message variant='danger'>{error}</Message> : (

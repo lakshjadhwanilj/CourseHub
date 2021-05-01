@@ -91,7 +91,7 @@ const CourseEditScreen = ({ match, history }) => {
                 Go Back
             </Link>
             <FormContainer>
-                <h3>Edit Course</h3>
+                <h3 className='text-muted font-weight-bold'>Edit Course</h3>
                 { loadingUpdate && <Loader /> }
                 { errorUpdate && <Message variant='danger'>{ errorUpdate }</Message> }
                 {
@@ -176,7 +176,14 @@ const CourseEditScreen = ({ match, history }) => {
                                     </Form.Control>
                                 </Form.Group>
 
-                                <Button type='submit' variant='warning'>Update</Button>
+                                <Button
+                                    type='submit'
+                                    variant='warning'
+                                    size='lg'
+                                    className='btn-block'
+                                >
+                                    Update
+                                </Button>
                             </Form>
                         )
                 }

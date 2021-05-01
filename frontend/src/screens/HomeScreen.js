@@ -20,7 +20,7 @@ const Homescreen = () => {
 
     return (
         <>
-            <h3 className='pb-0 my-0'>Let's Start Learning..</h3>
+            <h3 className='pb-0 my-0 text-muted font-weight-bold'>Let's Start Learning..</h3>
             { loading ? (
                 <Loader />
             ) : error ? (

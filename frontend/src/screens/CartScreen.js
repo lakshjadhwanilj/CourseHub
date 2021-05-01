@@ -31,7 +31,7 @@ const CartScreen = ({ match, history }) => {
 
     return (
         <>
-            <h3 className='pb-1'>Shopping Cart</h3>
+            <h3 className='text-muted font-weight-bold pb-1'>Shopping Cart</h3>
             
             <Row>
                 <Col lg={9}>
@@ -80,7 +80,7 @@ const CartScreen = ({ match, history }) => {
                     <div>
                         <ListGroup variant='flush'>
                             <ListGroup.Item className='bg-transparent px-0 border-0'>
-                                <p className='lead text-muted'>Total:</p>
+                                <p className='lead text-muted font-weight-bold'>Total:</p>
                                 <h3 className='py-0 my-0 font-weight-bold'>
                                     $ {cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
                                 </h3>

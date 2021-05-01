@@ -19,7 +19,7 @@ const Header = () => {
 
     return (
         <header>
-            <Navbar className='py-1' bg='dark' variant='dark' expand='lg' fixed='top' collapseOnSelect>
+            <Navbar className='py-1 text-uppercase font-weight-bold' bg='dark' variant='dark' expand='lg' fixed='top' collapseOnSelect>
                 <Container className='py-0'>
                     <LinkContainer to='/'>
                         <Navbar.Brand>
@@ -36,7 +36,7 @@ const Header = () => {
                         <Nav className='ml-auto'>
                             <LinkContainer to='/cart'>
                                 <Nav.Link>
-                                    <i className='fas fa-shopping-cart fa-sm text-warning'></i> CART
+                                    <i className='fas fa-shopping-cart fa-sm text-warning'></i> Cart
                                 </Nav.Link>
                             </LinkContainer>
                             {
@@ -44,13 +44,13 @@ const Header = () => {
                                     <NavDropdown
                                         title={<span><i className='fas fa-user-cog fa-sm text-warning'></i> Admin</span>} id='adminmenu'>
                                         <LinkContainer to='/admin/userlist'>
-                                            <NavDropdown.Item>Users</NavDropdown.Item>
+                                            <NavDropdown.Item className='font-weight-bold'>Users</NavDropdown.Item>
                                         </LinkContainer>
                                         <LinkContainer to='/admin/courselist'>
-                                            <NavDropdown.Item>Courses</NavDropdown.Item>
+                                            <NavDropdown.Item className='font-weight-bold'>Courses</NavDropdown.Item>
                                         </LinkContainer>
                                         <LinkContainer to='/admin/orderlist'>
-                                            <NavDropdown.Item>Orders</NavDropdown.Item>
+                                            <NavDropdown.Item className='font-weight-bold'>Orders</NavDropdown.Item>
                                         </LinkContainer>
                                     </NavDropdown>
                                 )
@@ -61,14 +61,14 @@ const Header = () => {
                                         title={<span><i className='fas fa-user fa-sm text-warning'></i> {userInfo.name}</span>}
                                         id='username'>
                                         <LinkContainer to='/profile'>
-                                            <NavDropdown.Item>Profile</NavDropdown.Item>
+                                            <NavDropdown.Item className='font-weight-bold'>Profile</NavDropdown.Item>
                                         </LinkContainer>
-                                        <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                        <NavDropdown.Item className='font-weight-bold' onClick={logoutHandler}>Logout</NavDropdown.Item>
                                     </NavDropdown>
                                 : 
                                     <LinkContainer to='/login'>
                                         <Nav.Link>
-                                            <i className='fas fa-user text-warning'></i> SIGN IN
+                                            <i className='fas fa-user text-warning'></i> Sign In
                                         </Nav.Link>
                                     </LinkContainer>
                             }

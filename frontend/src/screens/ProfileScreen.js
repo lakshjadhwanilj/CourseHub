@@ -57,7 +57,7 @@ const ProfileScreen = ({ location, history }) => {
     return (
         <Row>
             <Col md={4}>
-                <h3>User Profile</h3>
+                <h3 className='text-muted font-weight-bold'>User Profile</h3>
                 { message && <Message variant='danger'>{message}</Message>}
                 { error && <Message variant='danger'>{error}</Message>}
                 { success && <Message variant='success'>Profile Updated!</Message>}
@@ -108,11 +108,18 @@ const ProfileScreen = ({ location, history }) => {
                         </Form.Control>
                     </Form.Group>
 
-                    <Button type='submit' variant='warning'>UPDATE</Button>
+                    <Button
+                        type='submit'
+                        variant='warning'
+                        size='lg'
+                        className='btn-block'
+                    >
+                        UPDATE
+                    </Button>
                 </Form>
             </Col>
             <Col md={8}>
-                <h3>My Courses</h3>
+                <h3 className='text-muted font-weight-bold'>My Courses</h3>
                 {
                     loadingOrders ? <Loader /> :
                         errorOrders ? <Message variant='danger'>{errorOrders}</Message> :

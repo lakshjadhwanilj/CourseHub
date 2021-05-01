@@ -58,7 +58,8 @@ const Header = () => {
                             {
                                 userInfo ? 
                                     <NavDropdown
-                                        title={<span><i className='fas fa-user fa-sm text-warning'></i> {userInfo.name}</span>} id='username'>
+                                        title={<span><i className='fas fa-user fa-sm text-warning'></i> {userInfo.name}</span>}
+                                        id='username'>
                                         <LinkContainer to='/profile'>
                                             <NavDropdown.Item>Profile</NavDropdown.Item>
                                         </LinkContainer>

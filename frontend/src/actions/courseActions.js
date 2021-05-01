@@ -12,6 +12,9 @@ import {
     COURSE_CREATE_REQUEST,
     COURSE_CREATE_SUCCESS,
     COURSE_CREATE_FAIL,
+    COURSE_UPDATE_REQUEST,
+    COURSE_UPDATE_SUCCESS,
+    COURSE_UPDATE_FAIL,
 } from '../constants/courseConstants'
 
 export const listCourses = () => async (dispatch) => {
@@ -98,6 +101,36 @@ export const createCourse = () => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: COURSE_CREATE_FAIL,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        })
+    }
+}
+
+export const updateCourse = (course) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: COURSE_UPDATE_REQUEST,
+        })
+
+        const { userLogin: { userInfo } } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await axios.put(`/api/courses/${course._id}`, course, config)
+        
+        dispatch({
+            type: COURSE_UPDATE_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: COURSE_UPDATE_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
         })
     }

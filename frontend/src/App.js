@@ -13,6 +13,7 @@ import OrderScreen from './screens/OrderScreen'
 import UsersListScreen from './screens/UsersListScreen'
 import UserEditScreen from './screens/UserEditScreen'
 import CourseListScreen from './screens/CourseListScreen'
+import CourseEditScreen from './screens/CourseEditScreen'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -37,6 +38,7 @@ const App = () => {
           <Route path='/admin/userlist' component={UsersListScreen} />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />
           <Route path='/admin/courselist' component={CourseListScreen} />
+          <Route path='/admin/course/:id/edit' component={CourseEditScreen} />
           <Route path='/' exact component={HomeScreen} />
         </Container>
         <ScrollToTop />

@@ -40,22 +40,6 @@ const Header = () => {
                                 </Nav.Link>
                             </LinkContainer>
                             {
-                                userInfo ? 
-                                    <NavDropdown
-                                        title={<span><i className='fas fa-user fa-sm text-warning'></i> {userInfo.name}</span>} id='username'>
-                                        <LinkContainer to='/profile'>
-                                            <NavDropdown.Item>Profile</NavDropdown.Item>
-                                        </LinkContainer>
-                                        <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
-                                    </NavDropdown>
-                                : 
-                                    <LinkContainer to='/login'>
-                                        <Nav.Link>
-                                            <i className='fas fa-user text-warning'></i> SIGN IN
-                                        </Nav.Link>
-                                    </LinkContainer>
-                            }
-                            {
                                 userInfo && userInfo.isAdmin && (
                                     <NavDropdown
                                         title={<span><i className='fas fa-user-cog fa-sm text-warning'></i> Admin</span>} id='adminmenu'>
@@ -70,6 +54,22 @@ const Header = () => {
                                         </LinkContainer>
                                     </NavDropdown>
                                 )
+                            }
+                            {
+                                userInfo ? 
+                                    <NavDropdown
+                                        title={<span><i className='fas fa-user fa-sm text-warning'></i> {userInfo.name}</span>} id='username'>
+                                        <LinkContainer to='/profile'>
+                                            <NavDropdown.Item>Profile</NavDropdown.Item>
+                                        </LinkContainer>
+                                        <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                    </NavDropdown>
+                                : 
+                                    <LinkContainer to='/login'>
+                                        <Nav.Link>
+                                            <i className='fas fa-user text-warning'></i> SIGN IN
+                                        </Nav.Link>
+                                    </LinkContainer>
                             }
                         </Nav>
                     </Navbar.Collapse>

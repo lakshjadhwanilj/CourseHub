@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listCourses, deleteCourse } from '../actions/courseActions'
+import { listCourses, deleteCourse, createCourse } from '../actions/courseActions'
+import { COURSE_CREATE_RESET } from '../constants/courseConstants'
 // Components
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
@@ -17,16 +18,24 @@ const CourseListScreen = ({ history, match }) => {
     const courseDelete = useSelector(state => state.courseDelete)
     const { loading: loadingDelete, error: errorDelete, success: successDelete } = courseDelete
     
+    const courseCreate = useSelector(state => state.courseCreate)
+    const { loading: loadingCreate, error: errorCreate, success: successCreate, course: createdCourse } = courseCreate
+    
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
     
     useEffect(() => {
-        if (userInfo && userInfo.isAdmin) {
-            dispatch(listCourses())
-        } else {
+        dispatch({ type: COURSE_CREATE_RESET })
+
+        if (!userInfo.isAdmin) {
             history.push('/login')
         }
-    }, [dispatch, history, userInfo, successDelete])
+        if (successCreate) {
+            history.push(`/admin/course/${createdCourse._id}/edit`)
+        } else {
+            dispatch(listCourses())
+        }
+    }, [dispatch, history, userInfo, successDelete, successCreate, createdCourse])
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure?')) {
@@ -34,8 +43,9 @@ const CourseListScreen = ({ history, match }) => {
         }
     }
 
-    const createCourseHandler = (course) => {
-        // create product
+    const createCourseHandler = () => {
+        dispatch(createCourse())
+        console.log(createdCourse)
     }
 
     return (
@@ -52,6 +62,8 @@ const CourseListScreen = ({ history, match }) => {
             </Row>
             { loadingDelete && <Loader /> }
             { errorDelete && <Message variant='danger'>{ errorDelete }</Message> }
+            { loadingCreate && <Loader /> }
+            { errorCreate && <Message variant='danger'>{ errorCreate }</Message> }
             {
                 loading ? <Loader /> :
                     error ? <Message variant='danger'>{error}</Message> : (

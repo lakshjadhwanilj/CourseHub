@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listCourses } from '../actions/courseActions'
+import { listCourses, deleteCourse } from '../actions/courseActions'
 // Components
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
@@ -14,6 +14,9 @@ const CourseListScreen = ({ history, match }) => {
     const courseList = useSelector(state => state.courseList)
     const { loading, error, courses } = courseList
     
+    const courseDelete = useSelector(state => state.courseDelete)
+    const { loading: loadingDelete, error: errorDelete, success: successDelete } = courseDelete
+    
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
     
@@ -23,11 +26,11 @@ const CourseListScreen = ({ history, match }) => {
         } else {
             history.push('/login')
         }
-    }, [dispatch, history, userInfo])
+    }, [dispatch, history, userInfo, successDelete])
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure?')) {
-            // dispatch(deleteUser(id))
+            dispatch(deleteCourse(id))
         }
     }
 
@@ -47,6 +50,8 @@ const CourseListScreen = ({ history, match }) => {
                     </Button>
                 </Col>
             </Row>
+            { loadingDelete && <Loader /> }
+            { errorDelete && <Message variant='danger'>{ errorDelete }</Message> }
             {
                 loading ? <Loader /> :
                     error ? <Message variant='danger'>{error}</Message> : (

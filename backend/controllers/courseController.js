@@ -23,4 +23,19 @@ const getCourseById = asyncHandler(async (req, res) => {
     }
 })
 
-export { getCourses, getCourseById } 
+// @desc    Delete a course
+// @route   DELETE /api/courses/:id
+// @access  Private/Admin
+const deleteCourse = asyncHandler(async (req, res) => {
+    const course = await Course.findById(req.params.id)
+
+    if (course) {
+        await course.remove()
+        res.json({ message: 'Course removed!' })
+    } else {
+        res.status(404)
+        throw new Error('Course not found!')
+    }
+})
+
+export { getCourses, getCourseById, deleteCourse } 

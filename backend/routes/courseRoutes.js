@@ -4,13 +4,15 @@ import {
     getCourseById,
     deleteCourse,
     createCourse,
-    updateCourse
+    updateCourse,
+    createCourseReview
 } from '../controllers/courseController.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
 
 const router = express.Router()
 
 router.route('/').get(getCourses).post(protect, admin, createCourse)
+router.route('/:id/reviews').post(protect, createCourseReview)
 router.
     route('/:id').
     get(getCourseById).

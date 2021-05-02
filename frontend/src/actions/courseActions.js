@@ -15,6 +15,9 @@ import {
     COURSE_UPDATE_REQUEST,
     COURSE_UPDATE_SUCCESS,
     COURSE_UPDATE_FAIL,
+    COURSE_CREATE_REVIEW_REQUEST,
+    COURSE_CREATE_REVIEW_SUCCESS,
+    COURSE_CREATE_REVIEW_FAIL,
 } from '../constants/courseConstants'
 
 export const listCourses = () => async (dispatch) => {
@@ -131,6 +134,35 @@ export const updateCourse = (course) => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: COURSE_UPDATE_FAIL,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        })
+    }
+}
+
+export const createCourseReview = (courseId, review) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: COURSE_CREATE_REVIEW_REQUEST,
+        })
+
+        const { userLogin: { userInfo } } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        }
+
+        await axios.post(`/api/courses/${courseId}/reviews`, review, config)
+        
+        dispatch({
+            type: COURSE_CREATE_REVIEW_SUCCESS
+        })
+
+    } catch (error) {
+        dispatch({
+            type: COURSE_CREATE_REVIEW_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
         })
     }

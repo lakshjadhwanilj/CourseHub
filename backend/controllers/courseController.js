@@ -83,10 +83,44 @@ const updateCourse = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc    Create new review
+// @route   POST /api/courses/:id/reviews
+// @access  Private
+const createCourseReview = asyncHandler(async (req, res) => {
+    const { rating, comment } = req.body
+
+    const course = await Course.findById(req.params.id)
+
+    if (course) {
+        const alreadyReviewed = course.reviews.find(r => r.user.toString() === req.user._id.toString())
+
+        if (alreadyReviewed) {
+            res.status(400)
+            throw new Error('Product already reviewd.')
+        }
+        const review = {
+            name: req.user.name,
+            rating: Number(rating),
+            comment,
+            user: req.user._id
+        }
+        course.reviews.push(review)
+        course.numReviews = course.reviews.length
+        course.rating = course.reviews.reduce((acc, item) => item.rating + acc, 0) / course.reviews.length
+
+        await course.save()
+        res.status(201).json({message: 'Review added!'})
+    } else {
+        res.status(404)
+        throw new Error('Course not found!')
+    }
+})
+
 export {
     getCourses,
     getCourseById,
     deleteCourse,
     createCourse,
-    updateCourse
+    updateCourse,
+    createCourseReview 
 }

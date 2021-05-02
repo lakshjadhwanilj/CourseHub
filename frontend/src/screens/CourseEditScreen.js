@@ -28,27 +28,34 @@ const CourseEditScreen = ({ match, history }) => {
     const courseDetails = useSelector(state => state.courseDetails)
     const { loading, error, course } = courseDetails
     
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+
     const courseUpdate = useSelector(state => state.courseUpdate)
     const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = courseUpdate
 
     useEffect(() => {
-        if (successUpdate) {
-            dispatch({ type: COURSE_UPDATE_RESET })
-            history.push('/admin/courselist')
+        if (!userInfo) {
+            history.push('/login')
         } else {
-            if (!course.title || course._id !== courseId) {
-                dispatch(listCourseDetails(courseId))
+            if (successUpdate) {
+                dispatch({ type: COURSE_UPDATE_RESET })
+                history.push('/admin/courselist')
             } else {
-                setTitle(course.title)
-                setPrice(course.price)
-                setImage(course.image)
-                setInstructor(course.instructor)
-                setCategory(course.category)
-                setAvailability(course.availability)
-                setDescription(course.description)
+                if (!course.title || course._id !== courseId) {
+                    dispatch(listCourseDetails(courseId))
+                } else {
+                    setTitle(course.title)
+                    setPrice(course.price)
+                    setImage(course.image)
+                    setInstructor(course.instructor)
+                    setCategory(course.category)
+                    setAvailability(course.availability)
+                    setDescription(course.description)
+                }
             }
         }
-    }, [course, courseId, dispatch, history, successUpdate])
+    }, [course, courseId, dispatch, history, successUpdate, userInfo])
 
     const uploadFileHandler = async (e) => {
         const file = e.target.files[0]

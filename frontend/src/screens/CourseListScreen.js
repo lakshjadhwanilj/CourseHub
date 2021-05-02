@@ -30,7 +30,7 @@ const CourseListScreen = ({ history, match }) => {
     useEffect(() => {
         dispatch({ type: COURSE_CREATE_RESET })
 
-        if (!userInfo.isAdmin) {
+        if (!userInfo) {
             history.push('/login')
         }
         if (successCreate) {

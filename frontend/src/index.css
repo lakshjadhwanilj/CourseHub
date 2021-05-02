@@ -21,6 +21,7 @@ main {
     min-height: 80vh;
     font-family: 'Lato', sans-serif;
 }
+
 header,
 footer {
     font-family: 'Lato', sans-serif;
@@ -84,6 +85,14 @@ h3 {
     margin: 0 auto;
 }
 
+/* scroll to top */
+.scroll-to-top {
+    position: fixed;
+    bottom: 12px;
+    right: 15px;
+    z-index: 1;
+}
+
 /* media queries */
 @media only screen and (max-width: 575px) {
     .searchbox {
@@ -107,11 +116,4 @@ h3 {
     .course-card-img {
         height: 12rem;
     }
-}
-
-.scroll-to-top {
-    position: fixed;
-    bottom: 12px;
-    right: 15px;
-    z-index: 1;
 }

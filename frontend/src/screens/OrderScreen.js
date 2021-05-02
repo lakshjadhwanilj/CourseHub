@@ -48,7 +48,6 @@ const OrderScreen = ({ match }) => {
     }, [dispatch, orderId, successPay, order])
 
     const successPaymentHandler = (paymentResult) => {
-        console.log(paymentResult)
         dispatch(payOrder(orderId, paymentResult))
     }
 
@@ -102,7 +101,7 @@ const OrderScreen = ({ match }) => {
                                                                 />
                                                             </Col>
                                                             <Col>
-                                                                <Link to={`/product/${item.product}`}>{item.title}</Link>
+                                                                <Link to={`/course/${item.course}`}>{item.title}</Link>
                                                             </Col>
                                                             <Col md={2}>
                                                                 $ {item.price}

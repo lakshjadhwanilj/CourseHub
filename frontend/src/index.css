@@ -49,6 +49,16 @@ h3 {
     height: 22rem;
 }
 
+@media only screen and (max-width: 575px) {
+    .searchbox {
+        margin-bottom: 0.6rem !important;
+    }
+    .searchBtn {
+        display: block;
+        width: 100%;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .course-card-img {
         height: 12rem;

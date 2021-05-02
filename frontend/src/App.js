@@ -41,6 +41,7 @@ const App = () => {
           <Route path='/admin/courselist' component={CourseListScreen} />
           <Route path='/admin/course/:id/edit' component={CourseEditScreen} />
           <Route path='/admin/orderlist' component={OrderListScreen} />
+          <Route path='/search/:keyword' component={HomeScreen} />
           <Route path='/' exact component={HomeScreen} />
         </Container>
         <ScrollToTop />

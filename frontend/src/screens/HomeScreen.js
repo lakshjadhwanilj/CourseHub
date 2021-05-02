@@ -7,7 +7,9 @@ import Course from '../components/Course'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
-const Homescreen = () => {
+const Homescreen = ({ match }) => {
+
+    const keyword = match.params.keyword
 
     const dispatch = useDispatch()
 
@@ -15,8 +17,8 @@ const Homescreen = () => {
     const { loading, error, courses } = courseList
 
     useEffect(() => {
-        dispatch(listCourses())
-    }, [dispatch])
+        dispatch(listCourses(keyword))
+    }, [dispatch, keyword])
 
     return (
         <>

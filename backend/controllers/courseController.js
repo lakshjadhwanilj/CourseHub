@@ -5,7 +5,14 @@ import Course from '../models/courseModel.js'
 // @route   GET /api/courses
 // @access  Pubic
 const getCourses =  asyncHandler (async (req, res) => {
-    const courses = await Course.find({})
+    const keyword = req.query.keyword ? {
+        title: {
+            $regex: req.query.keyword,
+            $options: 'i'
+        }
+    } : {}
+
+    const courses = await Course.find({ ...keyword })
     res.json(courses)
 })
 

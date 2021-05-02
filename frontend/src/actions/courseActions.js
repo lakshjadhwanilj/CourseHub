@@ -18,6 +18,9 @@ import {
     COURSE_CREATE_REVIEW_REQUEST,
     COURSE_CREATE_REVIEW_SUCCESS,
     COURSE_CREATE_REVIEW_FAIL,
+    COURSE_TOP_REQUEST,
+    COURSE_TOP_SUCCESS,
+    COURSE_TOP_FAIL
 } from '../constants/courseConstants'
 
 export const listCourses = (keyword = '', pageNumber = '') => async (dispatch) => {
@@ -163,6 +166,22 @@ export const createCourseReview = (courseId, review) => async (dispatch, getStat
     } catch (error) {
         dispatch({
             type: COURSE_CREATE_REVIEW_FAIL,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        })
+    }
+}
+
+export const listTopCourses = () => async (dispatch) => {
+    try {
+        dispatch({ type: COURSE_TOP_REQUEST })
+        const { data } = await axios.get(`/api/courses/top`)
+        dispatch({
+            type: COURSE_TOP_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: COURSE_TOP_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
         })
     }

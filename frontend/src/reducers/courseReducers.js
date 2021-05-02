@@ -19,7 +19,10 @@ import {
     COURSE_CREATE_REVIEW_REQUEST,
     COURSE_CREATE_REVIEW_SUCCESS,
     COURSE_CREATE_REVIEW_FAIL,
-    COURSE_CREATE_REVIEW_RESET
+    COURSE_CREATE_REVIEW_RESET,
+    COURSE_TOP_REQUEST,
+    COURSE_TOP_SUCCESS,
+    COURSE_TOP_FAIL
 } from '../constants/courseConstants'
 
 export const courseListReducer = (state = { courses: [] }, action) => {
@@ -106,6 +109,19 @@ export const courseReviewCreateReducer = (state = {}, action) => {
             return { loading: false, error: action.payload }
         case COURSE_CREATE_REVIEW_RESET:
             return { }
+        default:
+            return state
+    }
+}
+
+export const courseTopRatedReducer = (state = { courses: [] }, action) => {
+    switch (action.type) {
+        case COURSE_TOP_REQUEST:
+            return { loading: true }
+        case COURSE_TOP_SUCCESS:
+            return { loading: false, courses: action.payload }
+        case COURSE_TOP_FAIL:
+            return { loading: false, error: action.payload }
         default:
             return state
     }

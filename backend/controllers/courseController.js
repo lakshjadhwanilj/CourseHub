@@ -129,11 +129,20 @@ const createCourseReview = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc    Get top rated courses
+// @route   GET /api/courses/top
+// @access  Public
+const getTopCourses = asyncHandler(async (req, res) => {
+    const courses = await Course.find({}).sort({ rating: -1 }).limit(3)
+    res.json(courses)
+})
+
 export {
     getCourses,
     getCourseById,
     deleteCourse,
     createCourse,
     updateCourse,
-    createCourseReview 
+    createCourseReview,
+    getTopCourses
 }

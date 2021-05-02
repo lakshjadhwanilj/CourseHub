@@ -53,6 +53,38 @@ h3 {
     height: 22rem;
 }
 
+/* carousel */
+.carousel {
+    margin-top: 1rem;
+    overflow: hidden;
+}
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    padding-top: 0.2rem;
+}
+
+.carousel img {
+    max-height: 18rem;
+    width: auto;
+    padding: 1rem;
+    margin: 3rem 0 1.5rem;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.carousel a {
+    margin: 0 auto;
+}
+
+/* media queries */
 @media only screen and (max-width: 575px) {
     .searchbox {
         margin-bottom: 0.6rem !important;
@@ -63,6 +95,14 @@ h3 {
     }
 }
 
+@media only screen and (min-width: 767px) {
+    .carousel-caption {
+        padding-top: 0.5rem;
+    }
+    .carousel img {
+        margin: 2rem 0 1.5rem;
+    }
+}
 @media only screen and (max-width: 767px) {
     .course-card-img {
         height: 12rem;

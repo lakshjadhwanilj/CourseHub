@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { listCourses } from '../actions/courseActions'
 // Components
 import { Row, Col } from 'react-bootstrap'
+import CourseCarousel from '../components/CourseCarousel'
 import Course from '../components/Course'
 import Paginate from '../components/Paginate'
 import Message from '../components/Message'
@@ -24,6 +25,7 @@ const Homescreen = ({ match }) => {
 
     return (
         <>
+            {!keyword && <CourseCarousel /> }
             <h3 className='pb-0 my-0 text-muted font-weight-bold'>Let's Start Learning..</h3>
             { loading ? (
                 <Loader />

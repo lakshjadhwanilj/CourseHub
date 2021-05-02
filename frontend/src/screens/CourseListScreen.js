@@ -5,15 +5,18 @@ import { COURSE_CREATE_RESET } from '../constants/courseConstants'
 // Components
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
+import Paginate from '../components/Paginate'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
 const CourseListScreen = ({ history, match }) => {
 
+    const pageNumber = match.params.pageNumber || 1
+
     const dispatch = useDispatch()
 
     const courseList = useSelector(state => state.courseList)
-    const { loading, error, courses } = courseList
+    const { loading, error, courses, page, pages } = courseList
     
     const courseDelete = useSelector(state => state.courseDelete)
     const { loading: loadingDelete, error: errorDelete, success: successDelete } = courseDelete
@@ -33,9 +36,9 @@ const CourseListScreen = ({ history, match }) => {
         if (successCreate) {
             history.push(`/admin/course/${createdCourse._id}/edit`)
         } else {
-            dispatch(listCourses())
+            dispatch(listCourses('', pageNumber))
         }
-    }, [dispatch, history, userInfo, successDelete, successCreate, createdCourse])
+    }, [dispatch, history, userInfo, successDelete, successCreate, createdCourse, pageNumber])
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure?')) {
@@ -67,6 +70,7 @@ const CourseListScreen = ({ history, match }) => {
             {
                 loading ? <Loader /> :
                     error ? <Message variant='danger'>{error}</Message> : (
+                        <>
                         <Table hover responsive size='sm'>
                             <thead>
                                 <tr>
@@ -102,7 +106,9 @@ const CourseListScreen = ({ history, match }) => {
                                     ))
                                 }
                             </tbody>
-                        </Table>
+                            </Table>
+                            <Paginate pages={pages} page={page} isAdmin={true} />
+                        </>
                     )
             }
         </>

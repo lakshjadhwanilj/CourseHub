@@ -37,6 +37,10 @@ a:hover,
     /* color: #20c997; */
 }
 
+.page-link {
+    background: #f39c12 !important;
+}
+
 h3 {
     padding: 1rem 0;
 }

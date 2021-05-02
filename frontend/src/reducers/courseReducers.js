@@ -27,7 +27,12 @@ export const courseListReducer = (state = { courses: [] }, action) => {
         case COURSE_LIST_REQUEST:
             return { loading: true, courses: [] }
         case COURSE_LIST_SUCCESS:
-            return { loading: false, courses: action.payload }
+            return {
+                loading: false,
+                courses: action.payload.courses,
+                pages: action.payload.pages,
+                page: action.payload.page
+            }
         case COURSE_LIST_FAIL:
             return { loading: false, error: action.payload }
         default:

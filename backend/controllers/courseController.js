@@ -4,7 +4,11 @@ import Course from '../models/courseModel.js'
 // @desc    Fetch all courses
 // @route   GET /api/courses
 // @access  Pubic
-const getCourses =  asyncHandler (async (req, res) => {
+const getCourses = asyncHandler(async (req, res) => {
+    
+    const pageSize = 4
+    const page = Number(req.query.pageNumber) || 1
+
     const keyword = req.query.keyword ? {
         title: {
             $regex: req.query.keyword,
@@ -12,8 +16,10 @@ const getCourses =  asyncHandler (async (req, res) => {
         }
     } : {}
 
-    const courses = await Course.find({ ...keyword })
-    res.json(courses)
+    const count = await Course.countDocuments({ ...keyword })
+    const courses = await Course.find({ ...keyword }).limit(pageSize).skip(pageSize * (page - 1))
+    
+    res.json({ courses, page, pages: Math.ceil(count / pageSize) })
 })
 
 // @desc    Fetch single course

@@ -38,10 +38,13 @@ const App = () => {
           <Route path='/cart/:id?' component={CartScreen} />
           <Route path='/admin/userlist' component={UsersListScreen} />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />
-          <Route path='/admin/courselist' component={CourseListScreen} />
+          <Route path='/admin/courselist' exact component={CourseListScreen} />
           <Route path='/admin/course/:id/edit' component={CourseEditScreen} />
+          <Route path='/admin/courselist/:pageNumber' exact component={CourseListScreen} />
           <Route path='/admin/orderlist' component={OrderListScreen} />
-          <Route path='/search/:keyword' component={HomeScreen} />
+          <Route path='/search/:keyword' exact component={HomeScreen} />
+          <Route path='/page/:pageNumber' component={HomeScreen} />
+          <Route path='/search/:keyword/page/:pageNumber' exact component={HomeScreen} />
           <Route path='/' exact component={HomeScreen} />
         </Container>
         <ScrollToTop />

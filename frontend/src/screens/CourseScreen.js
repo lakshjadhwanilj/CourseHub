@@ -5,6 +5,7 @@ import { listCourseDetails, createCourseReview } from '../actions/courseActions'
 import { COURSE_CREATE_REVIEW_RESET } from '../constants/courseConstants'
 // Components
 import { Row, Col, Card, Button, ListGroup, Form } from 'react-bootstrap'
+import Meta from '../components/Meta'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -56,6 +57,7 @@ const CourseScreen = ({ history, match }) => {
                 <Message variant='danger'>{ error }</Message>
             ) : (
                 <>
+                    <Meta title={course.title} />
                     <Row>
                         <Col lg={8}>
                             <h2 className='py-2'>{course.title}</h2>
@@ -122,6 +124,7 @@ const CourseScreen = ({ history, match }) => {
                                                     <Form.Control
                                                         as='select' value={rating}
                                                         onChange={e => setRating(e.target.value)}
+                                                        autoComplete='off'
                                                     >
                                                         <option value=''>Select..</option>
                                                         <option value='1'>1 - Poor</option>
@@ -139,6 +142,7 @@ const CourseScreen = ({ history, match }) => {
                                                         value={comment}
                                                         placeholder='Write a review'
                                                         onChange={e => setComment(e.target.value)}
+                                                        autoComplete='off'
                                                     >
                                                     </Form.Control>
                                                 </Form.Group>

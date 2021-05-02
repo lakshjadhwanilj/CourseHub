@@ -105,7 +105,9 @@ const CourseEditScreen = ({ match, history }) => {
                                         type='name'
                                         placeholder='Enter Title'
                                         value={title}
-                                        onChange={(e) => setTitle(e.target.value)}>
+                                        onChange={(e) => setTitle(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
 
@@ -115,7 +117,9 @@ const CourseEditScreen = ({ match, history }) => {
                                         type='number'
                                         placeholder='Enter Price'
                                         value={price}
-                                        onChange={(e) => setPrice(e.target.value)}>
+                                        onChange={(e) => setPrice(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
                                 
@@ -125,7 +129,9 @@ const CourseEditScreen = ({ match, history }) => {
                                         type='text'
                                         placeholder='Enter Image URL'
                                         value={image}
-                                        onChange={(e) => setImage(e.target.value)}>
+                                        onChange={(e) => setImage(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group controlId='image'>
@@ -143,7 +149,9 @@ const CourseEditScreen = ({ match, history }) => {
                                         type='text'
                                         placeholder='Enter Instructor'
                                         value={instructor}
-                                        onChange={(e) => setInstructor(e.target.value)}>
+                                        onChange={(e) => setInstructor(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
                                 
@@ -153,7 +161,9 @@ const CourseEditScreen = ({ match, history }) => {
                                         type='text'
                                         placeholder='Enter Category'
                                         value={category}
-                                        onChange={(e) => setCategory(e.target.value)}>
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
 
@@ -172,7 +182,9 @@ const CourseEditScreen = ({ match, history }) => {
                                         rows={3}
                                         placeholder='Enter Description'
                                         value={description}
-                                        onChange={(e) => setDescription(e.target.value)}>
+                                        onChange={(e) => setDescription(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
 

@@ -65,7 +65,9 @@ const UserEditScreen = ({ match, history }) => {
                                         type='name'
                                         placeholder='Enter Name'
                                         value={name}
-                                        onChange={(e) => setName(e.target.value)}>
+                                        onChange={(e) => setName(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
 
@@ -75,7 +77,9 @@ const UserEditScreen = ({ match, history }) => {
                                         type='email'
                                         placeholder='Enter Email'
                                         value={email}
-                                        onChange={(e) => setEmail(e.target.value)}>
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        autoComplete='off'
+                                    >
                                     </Form.Control>
                                 </Form.Group>
 
@@ -84,7 +88,8 @@ const UserEditScreen = ({ match, history }) => {
                                         type='checkbox'
                                         label='Is Admin'
                                         checked={isAdmin}
-                                        onChange={(e) => setIsAdmin(e.target.checked)}>
+                                        onChange={(e) => setIsAdmin(e.target.checked)}
+                                    >
                                     </Form.Check>
                                 </Form.Group>
 

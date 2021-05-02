@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { listCourses } from '../actions/courseActions'
 // Components
 import { Row, Col } from 'react-bootstrap'
+import Meta from '../components/Meta'
 import CourseCarousel from '../components/CourseCarousel'
 import Course from '../components/Course'
 import Paginate from '../components/Paginate'
@@ -25,7 +27,10 @@ const Homescreen = ({ match }) => {
 
     return (
         <>
-            {!keyword && <CourseCarousel /> }
+            <Meta />
+            {
+                !keyword ? <CourseCarousel /> :
+                    <Link className='btn btn-link text-success mt-3 px-0' to='/'>Go Back</Link>}
             <h3 className='pb-0 my-0 text-muted font-weight-bold'>Let's Start Learning..</h3>
             { loading ? (
                 <Loader />

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 // Components
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
+import Meta from '../components/Meta'
 import Message from '../components/Message'
 
 const CartScreen = ({ match, history }) => {
@@ -31,6 +32,7 @@ const CartScreen = ({ match, history }) => {
 
     return (
         <>
+            <Meta title='CourseHub | Cart' />
             <h3 className='text-muted font-weight-bold pb-1'>Shopping Cart</h3>
             
             <Row>

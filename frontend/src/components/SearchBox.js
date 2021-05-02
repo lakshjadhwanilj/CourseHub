@@ -23,6 +23,7 @@ const SearchBox = ({ history }) => {
                 placeholder='Search Products...'
                 className='mr-sm-2 ml-lg-5 searchbox'
                 onChange={e => setKeyword(e.target.value)}
+                autoComplete='off'
             >
 
             </Form.Control>

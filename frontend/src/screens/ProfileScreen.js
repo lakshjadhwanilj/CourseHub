@@ -5,6 +5,7 @@ import { listMyOrders } from '../actions/orderActions'
 // Components
 import { LinkContainer } from 'react-router-bootstrap'
 import { Form, Button, Row, Col, Table } from 'react-bootstrap'
+import Meta from '../components/Meta'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
@@ -56,6 +57,7 @@ const ProfileScreen = ({ location, history }) => {
 
     return (
         <Row>
+            <Meta title={name} />
             <Col md={4}>
                 <h3 className='text-muted font-weight-bold'>User Profile</h3>
                 { message && <Message variant='danger'>{message}</Message>}
@@ -71,7 +73,9 @@ const ProfileScreen = ({ location, history }) => {
                             type='name'
                             placeholder='Enter Name'
                             value={name}
-                            onChange={(e) => setName(e.target.value)}>
+                            onChange={(e) => setName(e.target.value)}
+                            autoComplete='off'
+                        >
                         </Form.Control>
                     </Form.Group>
 
@@ -82,7 +86,9 @@ const ProfileScreen = ({ location, history }) => {
                             type='email'
                             placeholder='Enter Email'
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}>
+                            onChange={(e) => setEmail(e.target.value)}
+                            autoComplete='off'
+                        >
                         </Form.Control>
                     </Form.Group>
                     

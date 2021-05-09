@@ -34,7 +34,7 @@ const App = () => {
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/profile' component={ProfileScreen} />
-          <Route path='/course/:id' component={CourseScreen} />
+          <Route path='/course/:id' exact component={CourseScreen} />
           <Route path='/cart/:id?' component={CartScreen} />
           <Route path='/admin/userlist' component={UsersListScreen} />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />

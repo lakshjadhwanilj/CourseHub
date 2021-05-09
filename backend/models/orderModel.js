@@ -43,11 +43,6 @@ const orderSchema = mongoose.Schema({
     paidAt: {
         type: Date
     },
-    isApproved: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
     approvedAt: {
         type: Date
     }
